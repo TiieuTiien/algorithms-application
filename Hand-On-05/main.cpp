@@ -35,7 +35,9 @@ int main() {
     vector<vector<int>> L(strlen(A) + 1, vector<int>(strlen(B) + 1));
     
     int lcs_length = lcs_func(L, A, B);
-    cout << "Do dai xau con chung dai nhat: " << lcs_length << endl;
+	string lcs = lcs_backtrack(L, A, B);
+    cout << "Do dai xau con chung dai nhat co do dai la: " << lcs_length
+	<< "\nXau con chung dai nhat la: " << lcs << "\n";
     
     return 0;
 }

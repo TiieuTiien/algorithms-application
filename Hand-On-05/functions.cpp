@@ -104,3 +104,30 @@ int lcs_func(vector<vector<int>>& L, const char* A, const char* B) {
     }
     return L[m][n];
 }
+
+string lcs_backtrack(vector<vector<int>>& L, const char* A, const char* B) {
+    int i = strlen(A), j = strlen(B), k = 0;
+    char xc[i+j+1] = {0};
+    while (L[i][j] != 0) {
+        if (A[i - 1] == B[j - 1]) {
+            xc[k] = A[i - 1];
+            k++;
+            i--;
+            j--;
+        } else {
+            if (L[i - 1][j] > L[i][j - 1]) i--;
+            else j--;
+        }
+    }
+    xc[k] = '\0';
+    strrev(xc);
+
+	if (!xc) {
+    fprintf(stderr, "Memory allocation failed\n");
+    exit(1);
+	}
+	
+	string str(xc);
+	
+	return xc;	
+}

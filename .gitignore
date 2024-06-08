@@ -1,7 +1,4 @@
-Hand-On-06/*.layout
-Hand-On-06/*.o
-Hand-On-06/*.win
-Hand-On-05/*.exe
-Hand-On-06/*.exe
-Hand-On-07/*.exe
-Hand-On-08/*.exe
+**/*.exe
+**/*.win
+**/*.o
+**/*.layout

@@ -21,4 +21,7 @@ void z_algo(const char *s, int *z);
 // Longest common subsequence (LCS) function
 int lcs_func(vector<vector<int>>& L, const char* A, const char* B);
 
+// Trace back LCS string
+string lcs_backtrack(vector<vector<int>>& L, const char* A, const char* B);
+
 #endif // FUNCS_H
