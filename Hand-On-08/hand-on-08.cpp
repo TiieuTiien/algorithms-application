@@ -16,6 +16,11 @@ bool compareByPriceIncrease(const Fan& a, const Fan& b) {
 
 vector<Fan> calculate(const vector<Fan>& d, int p) {
 	vector<Fan> res;
+	vector<Fan> copy = d;
+
+    // Sort by price increase
+    sort(copy.begin(), copy.end(), compareByPriceIncrease);
+    
     for (const Fan& fan : d) {
         if (fan.price <= p) {
             res.push_back(fan);
@@ -41,6 +46,11 @@ bool compareByPriceDecrease(const Fan& a, const Fan& b) {
 
 vector<Fan> minFan(const vector<Fan>& d, int p) {
 	vector<Fan> res;
+	vector<Fan> copy = d;
+
+    // Sort by price decrease
+    sort(copy.begin(), copy.end(), compareByPriceDecrease);
+    
     for (const Fan& fan : d) {
         if (fan.price <= p) {
             res.push_back(fan);
@@ -53,9 +63,15 @@ vector<Fan> minFan(const vector<Fan>& d, int p) {
 		return {};
 }
 
+// Bai tap 3
 vector<Fan> minFanLargerThanP(const vector<Fan>& d, int p) {
 	vector<Fan> res;
-    for (const Fan& fan : d) {
+	vector<Fan> copy = d;
+
+    // Sort by price decrease
+    sort(copy.begin(), copy.end(), compareByPriceDecrease);
+    
+    for (const Fan& fan : copy) {
         res.push_back(fan);
         p -= fan.price;
         if (p < 0) return res;
@@ -78,9 +94,6 @@ int main() {
     cout << "Nhap so tien p: ";
     cin >> p;
 
-    // Sort by price increase
-    sort(d.begin(), d.end(), compareByPriceIncrease);
-
     vector<Fan> s = calculate(d, p);
     int c = s.size();
     
@@ -91,8 +104,6 @@ int main() {
 		<< "\n\nDanh sach quat:\n";
     	printVector(s);		
 	}
-    
-    sort(d.begin(), d.end(), compareByPriceDecrease);
 
     vector<Fan> v = minFan(d, p);
     int u = v.size();
